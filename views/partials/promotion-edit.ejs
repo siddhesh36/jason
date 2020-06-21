@@ -1,0 +1,47 @@
+<hr>
+<h1>Create New Teaser Record</h1>
+<hr>
+
+<form action="/update/<%= data.id %>" method="POST">
+    <div class="form-group" style="display: none;">
+        <label for="id">ID</label>
+        <input class="form-control" name="id" value="<%= data.id %>" >
+    </div>
+
+    <div class="form-group">
+      <label for="ticket">Ticket No</label>
+      <input class="form-control" name="ticket" value="<%= data.ticket %>" required>
+   </div>
+   <div class="form-group">
+      <label for="Title">Title</label>
+      <input class="form-control" name="title" value="<%= data.title %>" required>
+   </div>
+
+   <div class="form-group">
+      <div class="form-group">
+        <select name="country" id="country" class="form-control" required>
+          <option value="" disabled selected>Choose your Country</option>
+          <option value="all" <% if(data.country=="all"){ %> selected <% } %>>All</option>
+          <option value="ch" <% if(data.country=="ch"){ %> selected <% } %>>Switzerland</option>
+          <option value="global" <% if(data.country=="global"){ %> selected <% } %>>Global</option>
+          <option value="uk" <% if(data.country=="uk"){ %> selected <% } %>>UK</option>
+          <option value="de" <% if(data.country=="de"){ %> selected <% } %>>Germany</option>
+          <option value="fr" <% if(data.country=="fr"){ %> selected <% } %>>France</option>
+          <option value="it" <% if(data.country=="it"){ %> selected <% } %>>Italy</option>
+          <option value="es" <% if(data.country=="es"){ %> selected <% } %>>Spain</option>
+        </select>
+     </div>
+   </div>
+    
+    <div class="form-group">
+      <label for="startdate">start date</label>
+      <input type="date" class="form-control" name="startdate" value="<%= data.startdate %>" required>
+  </div>
+  <div class="form-group">
+      <label for="enddate">end date</label>
+      <input type="date" class="form-control" name="enddate" value="<%= data.enddate %>" required>
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+  <a href="/index-promotion" class="btn btn-info">Back</a>
+</form>
