@@ -1,4 +1,3 @@
-$( document ).ready(function() {
 	var d = new Date();
 	var month_name = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 	var month = d.getMonth();//0-11
@@ -56,12 +55,11 @@ $( document ).ready(function() {
 			let ol = $('<tr>').append(contries);
 			for(var c=1; c<=days; c++){
 				var r1= $('<td>').append(c);
-				let x = year+'-'+ (month+1) +'-'+c;
-				r1.attr('id', Date.parse(x));
+				let x = new Date(year+'-'+ (month+1) +'-'+c);
+				r1.attr('class', Date.parse(x));
 				ol.append(r1);
 			}
 			table.append(ol);
 		}
 		return table;
 	}
-});

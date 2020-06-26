@@ -11,10 +11,13 @@ router.get('/', function(req, res, next) {
 
 router.get('/index-promotion', function(req, res, next) {
     var sample = [];
-      mydata.forEach(function(item){
-        sample = sample.concat(item);
-      });
-  
+      //mydata.forEach(function(item){
+      //  sample = sample.concat(item);
+      //});
+
+      for (let oned of mydata) {
+        sample = sample.concat(oned);
+      }
       res.render('index', {data:sample});
 });
 

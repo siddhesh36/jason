@@ -1,0 +1,26 @@
+	<div id="res">
+
+	<% if(data.length > 0) { %>
+		<% for(i=0; i < data.length; i++){ %>
+			<% var sd= data[i].startdate %>
+		  <% var std= new Date(data[i].startdate) %>
+		  <% var end= new Date(data[i].enddate) %>
+		  <% var diff = (end.getDate() - std.getDate()) * 35 %>
+		  <div class="list-group-item-success" id="<%= data[i].id%>" data-std="<%- Date.parse(std.toDateString()) %>" style="width: <%- diff %>px !important;" >
+			<%= data[i].ticket %>
+		  </div>
+		<% }; %>
+	<% }; %>
+</div>
+	<script>
+	// function toggleSibling(sibling){
+	// 	sibling = sibling.nextSibling;
+	// 	while(!/tr/i.test(sibling.nodeName)){
+	// 		sibling = sibling.nextSibling;
+	// 	}
+	// 	sibling.style.display = sibling.style.display == 'table-row' ? 'none' : 'table-row';
+	// }
+	$("#res").children().each(function(){
+		var context = $(this);
+	}
+	</script>
