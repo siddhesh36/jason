@@ -1,6 +1,11 @@
+@font-face {
+  font-family: myFont;
+  src: url(./Frutiger_45_Light.ttf);
+}
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px myFont "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -28,9 +33,9 @@ li > form {
  /*index.html*/
 
 body{
- background:url('/images/calendar.jpg');
+ background: rgb(242,230,225);
  background-size: cover;
- color: #fff;
+ color: #000;
 }
 
   .big {
@@ -42,8 +47,6 @@ body{
   }
   
   .maindiv{
-  
-      background: rgba(0,0,0,0.5);
       width: 56%;
       vertical-align: middle;
       float: none;
@@ -51,12 +54,9 @@ body{
       margin-top: 11%;
       padding: 38px;
       padding-bottom: 49px;
-  
   }
   
    .dropbtn {
-    background-color: #614F46;
-    color: #FFFFFF;
     padding: 16px;
     font-size: 18px;
     border: none;
@@ -79,38 +79,35 @@ body{
     position: relative;
     left:45%;
   }
+
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #614F46;
+    background-color: ##f2e6e1;
     min-width: 190px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
   
   .dropdown-content a {
-    color: #FFFFFF;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     border: 1px solid;
     min-width: 190px;
   }
-  
-  .dropdown-content a:hover {background-color: #f1f1f1}
-  
+    
   .dropdown:hover .dropdown-content {
     display: block;
   }
   
-  .dropdown:hover .dropbtn {
-    background-color: #614F46;
+  .dropbtn:hover {
+    background-color: #4a5d19;
   }
   
   /*promotion.html*/
   
   .subdiv{
-    background: rgba(0,0,0,0.7);
     min-width: 1376px;
     width: 95%;
     vertical-align: middle;
@@ -190,6 +187,14 @@ body{
     background-color: #F44336;
   }
 
+  #calendar-country > table > tr:first-child{
+    position: relative;
+    visibility: hidden;
+  }
+
+  #calendar-country > table > tr > td > div {
+    display: none;
+  }
   /* table tbody tr td{
     position:relative;
   }

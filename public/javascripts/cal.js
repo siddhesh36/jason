@@ -5,30 +5,18 @@
 	var da1 = d.getDate();
 	//var day_name = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 	
+	function endOfMonth(date)
+	{
+	   
+	return new Date(date.getFullYear(), date.getMonth() + 1, 0);
+   
+	}
+
+	var eom = endOfMonth(d);
 	commonEx();
-	
-	$("#next1s").on("click", function(){
-		if(month<11){
-			month = month +1;
-		}
-		else{
-			month = 0;
-			year = year +1;
-		}
-		commonEx();
-	});
-	
-	$("#prev1s").on("click", function(){
-		if(month>0){
-			month = month -1;
-			year = year;
-		}
-		else{
-			month = 11;
-			year = year - 1;
-		}
-		commonEx();
-	});
+	var days_1 = new Date(year, month+1, 0).getDate();
+	var con = getCountry(days_1);
+	$("#calendar-country").append(con);
 	
 	function commonEx(){
 		var first_date = month_name[month] + " " + 1 + " " + year;
@@ -44,22 +32,34 @@
 	
 	function getCalender(days){
 		var table = $('<table>');
-		var tr = $('<tr>');
-		var d_arry = ["Switzerland","Global","UK","Germany","France","Italy","Spain"];
-		//row for the day letters
-		table.append(tr);
-
-		//Create days row blank row 2
-		for(var i=0; i<d_arry.length; i++){
-			var contries = $('<td>').append(d_arry[i]);
-			let ol = $('<tr>').append(contries);
-			for(var c=1; c<=days; c++){
-				var r1= $('<td>').append(c);
-				let x = new Date(year+'-'+ (month+1) +'-'+c);
-				r1.attr('class', Date.parse(x));
-				ol.append(r1);
-			}
-			table.append(ol);
+		//Create days row blank
+		let row = $('<tr>');
+		for(var c=0; c<=days; c++){
+			var r1 = $('<td>').append(c);
+			let x = new Date(year+'-'+ (month+1) +'-'+c);
+			r1.attr('class', Date.parse(x));
+			row.append(r1);
 		}
+		table.append(row);
 		return table;
 	}
+
+function getCountry(days){
+	var table = $('<table>');
+	var d_arry = ["Switzerland","Global","UK","Germany","France","Italy","Spain"];
+	var shortd_arry = ["ch","global","uk","de","fr","it","es"];
+	var frow1 = $('<tr>');
+	for(var c=0; c<=days; c++){
+		frow1.append($('<td>'));
+	}
+	table.append(frow1);
+	for(var i=0; i<d_arry.length; i++){
+		let ol = $('<tr>');
+		var contries = $('<td>').append(d_arry[i]);
+		ol.append(contries);
+		let r2= $('<td>').attr('colSpan', '' + days + '').addClass(shortd_arry[i]);
+		ol.append(r2);
+		table.append(ol);
+	}
+	return table;
+}
