@@ -11,22 +11,22 @@
 		  <% var monthdiff = end.getMonth() - std.getMonth() %>
 		  <% if(monthdiff == 0) { %>
 			<% var diff = (end.getDate() - std.getDate() + 1 ) * 35 %>
-			<div class="list-group-item-success" id="<%= data[i].id%>" data-country="<%= data[i].country %>" data-std="<%- Date.parse(std.toDateString()) %>" 
+			<div class="rounded-lg shadow-sm bg-info" id="<%= data[i].id%>" data-country="<%= data[i].country %>" data-std="<%- Date.parse(std.toDateString()) %>" 
 				style="width: <%- diff %>px !important" data-smon="<%= smon %>" data-emon="<%= emon %>" data-differmon="<%= monthdiff %>" >
-					<%= data[i].ticket %>
+					<%= data[i].ticket %> - <%= data[i].title %>
 			</div>
 		  <% } else { %>
 			<% var lastday = new Date(d.getFullYear(), d.getMonth() + 1, 0) %>
 			<% var firstday = new Date(d.getFullYear(), d.getMonth() + 1) %>
 			<% var newdiff = (lastday.getDate() - std.getDate() + 1 ) * 35 %>
 			<% var diffnm = (end.getDate() - firstday.getDate() + 1 ) * 35 %>
-			<div class="list-group-item-success" id="<%= data[i].id%>" data-country="<%= data[i].country %>" data-std="<%- Date.parse(std.toDateString()) %>" 
+			<div class="rounded-lg shadow-sm bg-info" id="<%= data[i].id%>" data-country="<%= data[i].country %>" data-std="<%- Date.parse(std.toDateString()) %>" 
 				style="width: <%- newdiff %>px !important" data-smon="<%= smon %>" data-emon="<%= smon %>" data-differmon="<%= monthdiff %>" >
-				<%= data[i].ticket %>
+				<%= data[i].ticket %> - <%= data[i].title %>
 			</div>
 			<div class="rounded-lg shadow-sm bg-info" id="<%= data[i].id%>" data-country="<%= data[i].country %>" data-std="<%- Date.parse(firstday.toDateString()) %>" 
 				style="width: <%- diffnm %>px !important" data-smon="<%= smon %>" data-emon="<%= emon %>" data-differmon="<%= monthdiff %>" >
-				<%= data[i].ticket %>
+				<%= data[i].ticket %> - <%= data[i].title %>
 			</div>
 		  <% }; %>
 		<% }; %>

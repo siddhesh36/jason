@@ -21,6 +21,7 @@ router.get('/index-promotion', function(req, res, next) {
       res.render('index', {data:sample});
 });
 
+/* Add data. */
 router.post('/add', (req, res) => {
   // We will be coding here
     var errors = [];
@@ -123,7 +124,7 @@ router.post('/update/:id', (req, res) => {
 
 router.post('/delete/:id', (req, res) => {
     var newid = req.params.id;
-  // Searching id for the with param
+    // Searching id for the with param
       mydata.forEach(cold => {
         if(cold.id == newid){
           var tbd = mydata.indexOf(cold);

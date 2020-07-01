@@ -35,7 +35,10 @@
 		//Create days row blank
 		let row = $('<tr>');
 		for(var c=0; c<=days; c++){
+			if(c == 0 ){var r1 = $('<td>').append("Date")
+		    } else {
 			var r1 = $('<td>').append(c);
+			}
 			let x = new Date(year+'-'+ (month+1) +'-'+c);
 			r1.attr('class', Date.parse(x));
 			row.append(r1);

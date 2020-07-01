@@ -4,18 +4,18 @@
       <hr>
       
       <form action="/add" method="POST">  
-        <div class="form-group">
-          <label for="ticket">Ticket No</label>
-          <input class="form-control" name="ticket" required value="">
+        <div class="form-group row">
+          <label for="ticket" class="col-sm-2 col-form-label">Ticket No</label>
+          <input class="form-control col-sm-10" name="ticket" required value="">
        </div>
-       <div class="form-group">
-          <label for="Title">Title</label>
-          <input class="form-control" name="title" required value="">
+       <div class="form-group row">
+          <label for="Title" class="col-sm-2 col-form-label">Title</label>
+          <input class="form-control col-sm-10" name="title" required value="">
        </div>
 
-       <div class="form-group">
-          <div class="form-group">
-            <select name="country" id="country" class="form-control" required>
+        <div class="form-group row">
+            <label for="Title" class="col-sm-2 col-form-label">Country</label>
+            <select name="country" id="country" class="form-control col-sm-10" required>
               <option disabled selected>Choose your Country</option>
               <option value="all">All</option>
               <option value="ch">Switzerland</option>
@@ -26,17 +26,15 @@
               <option value="it">Italy</option>
               <option value="es">Spain</option>
             </select>
-         </div>
-       </div>
+        </div>
         
-        <div class="form-group">
-          <label for="startdate">start date</label>
-          <input type="date" class="form-control" name="startdate" value="" required>
+        <div class="form-group row">
+          <label for="startdate" class="col-sm-2 col-form-label">start date</label>
+          <input type="date" class="form-control col-sm-4" name="startdate" value="" required>
+          <label for="enddate" class="col-sm-2 col-form-label">end date</label>
+          <input type="date" class="form-control col-sm-4" name="enddate" value="" required>
       </div>
-      <div class="form-group">
-          <label for="enddate">end date</label>
-          <input type="date" class="form-control" name="enddate" value="" required>
-      </div>
+      <br>
         <button type="submit" class="btn btn-success">Submit</button>
         <a href="/index-promotion" class="btn btn-info">Back</a>
       </form>
