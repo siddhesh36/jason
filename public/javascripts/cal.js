@@ -12,7 +12,7 @@
    
 	}
 
-	var eom = endOfMonth(d);
+	var eom = endOfMonth(d).getDate(); // Get last date of month
 	commonEx();
 	var days_1 = new Date(year, month+1, 0).getDate();
 	var con = getCountry(days_1);
@@ -33,14 +33,15 @@
 	function getCalender(days){
 		var table = $('<table>');
 		//Create days row blank
-		let row = $('<tr>');
+		var row = $('<tr>');
 		for(var c=0; c<=days; c++){
-			if(c == 0 ){var r1 = $('<td>').append("Date")
-		    } else {
-			var r1 = $('<td>').append(c);
+			var r1 = $('<td>');
+			if(c == 0 ){r1.append("Date");
+			} else {
+				r1.append(c);
+				var x = new Date(year+'-'+ (month+1) +'-'+c);
+				r1.attr('class', Date.parse(x));
 			}
-			let x = new Date(year+'-'+ (month+1) +'-'+c);
-			r1.attr('class', Date.parse(x));
 			row.append(r1);
 		}
 		table.append(row);
@@ -57,10 +58,10 @@ function getCountry(days){
 	}
 	table.append(frow1);
 	for(var i=0; i<d_arry.length; i++){
-		let ol = $('<tr>');
+		var ol = $('<tr>');
 		var contries = $('<td>').append(d_arry[i]);
 		ol.append(contries);
-		let r2= $('<td>').attr('colSpan', '' + days + '').addClass(shortd_arry[i]);
+		var r2= $('<td>').attr('colSpan', 31).addClass(shortd_arry[i]);
 		ol.append(r2);
 		table.append(ol);
 	}
