@@ -11,7 +11,11 @@
 	return new Date(date.getFullYear(), date.getMonth() + 1, 0);
    
 	}
-
+	function pad2(number) {
+   
+		return (number < 10 ? '0' : '') + number;
+	  
+    }
 	var eom = endOfMonth(d).getDate(); // Get last date of month
 	commonEx();
 	var days_1 = new Date(year, month+1, 0).getDate();
@@ -39,8 +43,9 @@
 			if(c == 0 ){r1.append("Date");
 			} else {
 				r1.append(c);
-				var x = new Date(year+'-'+ (month+1) +'-'+c);
-				r1.attr('class', Date.parse(x));
+				var monpad = month+1;
+				var x = year+'-'+ pad2(monpad) +'-'+c;
+				r1.attr('class', x);
 			}
 			row.append(r1);
 		}
@@ -50,8 +55,8 @@
 
 function getCountry(days){
 	var table = $('<table>');
-	var d_arry = ["Switzerland","Global","UK","Germany","France","Italy","Spain"];
-	var shortd_arry = ["ch","global","uk","de","fr","it","es"];
+	var d_arry = ["All","Switzerland","Global","UK","Germany","France","Italy","Spain"];
+	var shortd_arry = ["all","ch","global","uk","de","fr","it","es"];
 	var frow1 = $('<tr>');
 	for(var c=0; c<=days; c++){
 		frow1.append($('<td>'));

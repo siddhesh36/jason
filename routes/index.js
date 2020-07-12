@@ -25,35 +25,37 @@ router.get('/index-promotion', function(req, res, next) {
 router.post('/add', (req, res) => {
   // We will be coding here
     var errors = [];
+    var id;
+    var generateId = function (prefix, start) {
+      var i = start || 0;
+      return function() {
+          return prefix + i++;
+      };
+    };
+    
+    var data_old = {
+      "ticket" : req.body.ticket,
+      "title" : req.body.title,
+      "country" : req.body.country,
+      "startdate" : req.body.startdate,
+      "enddate" : req.body.enddate
+    };
+
     if ((Date.parse(req.body.startdate) >= Date.parse(req.body.enddate))) {
       errors.push("End date should be greater than Start date");
     }
     if (errors.length>0){
-      res.render("promotions", { errors : errors});
+      res.render("promotions", { data:data_old, errors : errors});
     } else {
-    function generateId(prefix, start) {
-      var i = start || 0;
-      return function() {
-          return prefix + i++;
-      }
+      id = generateId("idofobject_", count.counter); // start the counter at increment
     }
-    // start the counter at 12
-    var id = generateId("idofobject_", count.counter);
-
-    let c = count.counter++;
+    
+    var c = count.counter++;
     fs.writeFile("counterid.json", JSON.stringify(count), err => { 
       // Checking for errors 
       if (err) throw err;
     });
-    let genid = id();
-      let data = {
-        "id" : genid,
-        "ticket" : req.body.ticket,
-        "title" : req.body.title,
-        "country" : req.body.country,
-        "startdate" : req.body.startdate,
-        "enddate" : req.body.enddate
-      };
+      var genid = id();
       // Output the book to the console for debugging
       mydata.push(data);
       fs.writeFile("data.json", JSON.stringify(mydata, null, 2), err => { 
@@ -63,7 +65,6 @@ router.post('/add', (req, res) => {
       });
       req.flash('success_msg', "Homepage Promotion added");
       res.redirect('/index-promotion');
-    }
 });
 
 router.get('/edit/:id', (req, res) => {
@@ -141,7 +142,16 @@ router.post('/delete/:id', (req, res) => {
 });
 
 router.get('/promotions', (req, res) => {
-  res.render('promotions');
+  
+  var blankd = {
+    "ticket" : "",
+    "title" : "",
+    "country" : "",
+    "startdate" : "",
+    "enddate" : ""
+  };
+
+  res.render('promotions', {data:blankd});
 });
 
 router.get('/index-teaser', (req, res) => {

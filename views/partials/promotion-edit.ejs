@@ -39,6 +39,7 @@
       <input type="date" class="form-control col-sm-4" name="enddate" value="<%= data.enddate %>" required>
   </div>
   <br>
+  <button type="submit" class="btn btn-danger" formaction= "/delete/<%= data.id %>">Delete</button>
   <button type="submit" class="btn btn-success">Submit</button>
   <a href="/index-promotion" class="btn btn-info">Back</a>
 </form>
