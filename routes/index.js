@@ -57,6 +57,14 @@ router.post('/add', (req, res) => {
     });
       var genid = id();
       // Output the book to the console for debugging
+      let data = {
+        "id" : genid,
+        "ticket" : req.body.ticket,
+        "title" : req.body.title,
+        "country" : req.body.country,
+        "startdate" : req.body.startdate,
+        "enddate" : req.body.enddate
+      };
       mydata.push(data);
       fs.writeFile("data.json", JSON.stringify(mydata, null, 2), err => { 
         // Checking for errors 
