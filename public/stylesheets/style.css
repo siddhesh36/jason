@@ -198,25 +198,57 @@ body{
     background-color: #F44336;
   }
 
-  #calendar-country > table > tr:first-child{
+  #calendar-dates > table > tbody > tr:first-child{
     position: relative;
     visibility: hidden;
   }
-
-  #calendar-country > table > tr > td > div {
-    display: none;
+  #calendar-dates > table > tbody > tr > td {
+    position: relative;
+  }
+  #calendar-dates > table > tbody > tr > td > div {
+    float: left;
+    position: absolute;
     color: #fff;
+    top:12px;
     cursor: pointer;
   }
-  /* table tbody tr td{
-    position:relative;
+
+  table{  
+  border-collapse: collapse;
+}
+
+  table > thead{
+    margin: 0 0;
+    display: table;
+    border-collapse: collapse;
+    border: 0.1em solid #2b0a0a;
+    border: #f2e6e1 1px solid;
+    top: 0;
+    z-index: 10;
+    position: sticky;
+    background-color: cadetblue;
+    color: #f2e6e1;
+ }
+  table tbody 
+ {
+   overflow: auto;
+   display: block;
+
+  }
+
+  #calendar-dates{
+    position: relative;
+    margin-bottom: 25px;
   }
   
-  table tbody tr td div{
-    position:absolute;
-    top:-5em;
-    left:0;
-  } */
+  .top-row{
+    position: sticky;
+    top:0;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
 
 
-  
+  #res{
+    display: none;
+  }

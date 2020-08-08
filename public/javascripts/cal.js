@@ -18,9 +18,9 @@
     }
 	var eom = endOfMonth(d).getDate(); // Get last date of month
 	commonEx();
-	var days_1 = new Date(year, month+1, 0).getDate();
-	var con = getCountry(days_1);
-	$("#calendar-country").append(con);
+	//var days_1 = new Date(year, month+1, 0).getDate();
+	//var con = getCountry(days_1);
+	//$("#calendar-dates").append(con);
 	
 	function commonEx(){
 		var first_date = month_name[month] + " " + 1 + " " + year;
@@ -38,25 +38,45 @@
 		var table = $('<table>');
 		//Create days row blank
 		var row = $('<tr>');
+		var headrow = $('<thead>');
 		for(var c=0; c<=days; c++){
 			var r1 = $('<td>');
 			if(c == 0 ){r1.append("Date");
 			} else {
 				r1.append(c);
 				var monpad = month+1;
-				var x = year+'-'+ pad2(monpad) +'-'+c;
+				var tp = pad2(c);
+				var x = year+'-'+ pad2(monpad) +'-'+tp;
 				r1.attr('class', x);
 			}
 			row.append(r1);
+			headrow.append(row);
 		}
-		table.append(row);
+		table.append(headrow);
+		var headbody = $('<tbody>');
+		var d_arry = ["All","Global","Europe","Austria","Denmark","Finland","France","Germany","Iceland","Italy","Jersey","Luxembourg","Monaco","Netherlands","Norway","Russia","Spain","Sweden","Switzerland","Turkey","United Kingdom","North America","Canada","US","Asia Pacific","Australia","China","Hong Kong","India","Indonesia","Japan","Korea","Malaysia","New Zealand","Philippines","Singapore","Taiwan","Thailand","Middle East & Africa","Bahrain","Israel","Lebanon","Qatar","Saudi Arabia","South Africa","United Arab Emirates","Latin America","Bahamas","Brazil","Chile","Colombia","Mexico","Panama"];
+		var shortd_arry = ["all","global","eu","at","dk","fi","fr","de","is","it","je","lu","mc","nl","no","ru","es","se","ch","tr","uk","na","ca","us","ap","au","cn","hk","in","id","jp","kr","my","nz","ph","sg","tw","th","mea","bh","il","lb","qa","sa","za","ae","la","bs","br","cl","co","mx","pa"];
+		var frow1 = $('<tr>');
+		for(var d=0; d<=days; d++){
+			frow1.append($('<td>'));
+		}
+		headbody.append(frow1);
+		for(var i=0; i<d_arry.length; i++){
+			var ol = $('<tr>');
+			var contries = $('<td>').append(d_arry[i]);
+			ol.append(contries);
+			var r2= $('<td>').attr('colSpan', 31).addClass(shortd_arry[i]);
+			ol.append(r2);
+			headbody.append(ol);
+			table.append(headbody);
+		}
 		return table;
 	}
-
+/*
 function getCountry(days){
 	var table = $('<table>');
-	var d_arry = ["All","Switzerland","Global","UK","Germany","France","Italy","Spain"];
-	var shortd_arry = ["all","ch","global","uk","de","fr","it","es"];
+	var d_arry = ["All","Global","Europe","Austria","Denmark","Finland","Germany","Iceland","Italy","Jersey","Luxembourg","Monaco","Netherlands","Norway","Russia","Spain","Sweden","Switzerland","Turkey","United Kingdom","North America","Canada","US","Asia Pacific","Australia","China","Hong Kong","India","Indonesia","Japan","Korea","Malaysia","New Zealand","Philippines","Singapore","Taiwan","Thailand","Middle East & Africa","Bahrain","Israel","Lebanon","Qatar","Saudi Arabia","South Africa","United Arab Emirates","Latin America","Bahamas","Brazil","Chile","Colombia","Mexico","Panama"];
+	var shortd_arry = ["all","global","eu","at","dk","fi","de","is","it","je","lu","mc","nl","no","ru","es","se","ch","tr","uk","na","ca","us","ap","au","cn","hk","in","id","jp","kr","my","nz","ph","sg","tw","th","mea","bh","il","lb","qa","sa","za","ae","la","bs","br","cl","co","mx","pa"];
 	var frow1 = $('<tr>');
 	for(var c=0; c<=days; c++){
 		frow1.append($('<td>'));
@@ -71,4 +91,4 @@ function getCountry(days){
 		table.append(ol);
 	}
 	return table;
-}
+}*/
