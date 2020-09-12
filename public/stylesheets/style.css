@@ -202,9 +202,11 @@ body{
     position: relative;
     visibility: hidden;
   }
+  
   #calendar-dates > table > tbody > tr > td {
     position: relative;
   }
+
   #calendar-dates > table > tbody > tr > td > div {
     float: left;
     position: absolute;
@@ -251,4 +253,11 @@ body{
 
   #res{
     display: none;
+  }
+
+
+  /* Navbar */
+
+  .navbar-nav li{
+    height: fit-content;
   }

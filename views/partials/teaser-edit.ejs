@@ -1,0 +1,102 @@
+<hr>
+<h1>Edit the Teaser Record</h1>
+<hr>
+
+<form action="/tupdate/<%= data.id %>" method="POST">
+    <div class="form-group row" style="display: none;">
+        <label for="id">ID</label>
+        <input class="form-control" name="id" value="<%= data.id %>" >
+    </div>
+
+    <div class="form-group row">
+      <label for="ticket" class="col-sm-2 col-form-label">Ticket No</label>
+      <input class="form-control col-sm-10" name="ticket" value="<%= data.ticket %>" required>
+   </div>
+   <div class="form-group row">
+      <label for="Title" class="col-sm-2 col-form-label">Title</label>
+      <input class="form-control col-sm-10" name="title" value="<%= data.title %>" required>
+   </div>
+
+   <div class="form-group row">
+    <label for="Country" class="col-sm-2 col-form-label">Country</label>
+        <select name="country" id="country" class="form-control col-sm-10" required>
+          <option value="" disabled selected>Choose your Country</option>
+          <option value="all" <% if(data.country=="all"){ %> selected <% } %>>All</option>
+              <option value="global" <% if(data.country=="global"){ %> selected <% } %>>Global</option>
+              <option value="eu" <% if(data.country=="eu"){ %> selected <% } %>>Europe</option> //region
+              <option value="at" <% if(data.country=="at"){ %> selected <% } %>>Austria</option>
+              <option value="dk" <% if(data.country=="dk"){ %> selected <% } %>>Denmark</option>
+              <option value="fi" <% if(data.country=="fi"){ %> selected <% } %>>Finland</option>
+              <option value="fr" <% if(data.country=="fr"){ %> selected <% } %>>France</option>
+              <option value="de" <% if(data.country=="de"){ %> selected <% } %>>Germany</option>
+              <option value="is" <% if(data.country=="is"){ %> selected <% } %>>Iceland</option>
+              <option value="it" <% if(data.country=="it"){ %> selected <% } %>>Italy</option>
+              <option value="je" <% if(data.country=="je"){ %> selected <% } %>>Jersey</option>
+              <option value="lu" <% if(data.country=="lu"){ %> selected <% } %>>Luxembourg</option>
+              <option value="mc" <% if(data.country=="mc"){ %> selected <% } %>>Monaco</option>
+              <option value="nl" <% if(data.country=="nl"){ %> selected <% } %>>Netherlands</option>
+              <option value="no" <% if(data.country=="no"){ %> selected <% } %>>Norway</option>
+              <option value="ru" <% if(data.country=="ru"){ %> selected <% } %>>Russia</option>
+              <option value="es" <% if(data.country=="es"){ %> selected <% } %>>Spain</option>
+              <option value="se" <% if(data.country=="se"){ %> selected <% } %>>Sweden</option>
+              <option value="ch" <% if(data.country=="ch"){ %> selected <% } %>>Switzerland</option>
+              <option value="tr" <% if(data.country=="tr"){ %> selected <% } %>>Turkey</option>
+              <option value="uk" <% if(data.country=="uk"){ %> selected <% } %>>United Kingdom</option>
+              <option value="na" <% if(data.country=="na"){ %> selected <% } %>>North America</option> //region
+              <option value="ca" <% if(data.country=="ca"){ %> selected <% } %>>Canada</option>
+              <option value="us" <% if(data.country=="us"){ %> selected <% } %>>US</option>
+              <option value="ap" <% if(data.country=="ap"){ %> selected <% } %>>Asia Pacific</option> //region
+              <option value="au" <% if(data.country=="au"){ %> selected <% } %>>Australia</option>
+              <option value="cn" <% if(data.country=="cn"){ %> selected <% } %>>China</option>
+              <option value="hk" <% if(data.country=="hk"){ %> selected <% } %>>Hong Kong</option>
+              <option value="in" <% if(data.country=="in"){ %> selected <% } %>>India</option>
+              <option value="id" <% if(data.country=="id"){ %> selected <% } %>>Indonesia</option>
+              <option value="jp" <% if(data.country=="jp"){ %> selected <% } %>>Japan</option>
+              <option value="kr" <% if(data.country=="kr"){ %> selected <% } %>>Korea</option>
+              <option value="my" <% if(data.country=="my"){ %> selected <% } %>>Malaysia</option>
+              <option value="nz" <% if(data.country=="nz"){ %> selected <% } %>>New Zealand</option>
+              <option value="ph" <% if(data.country=="ph"){ %> selected <% } %>>Philippines</option>
+              <option value="sg" <% if(data.country=="sg"){ %> selected <% } %>>Singapore</option>
+              <option value="tw" <% if(data.country=="tw"){ %> selected <% } %>>Taiwan</option>
+              <option value="th" <% if(data.country=="th"){ %> selected <% } %>>Thailand</option>
+              <option value="mea" <% if(data.country=="mea"){ %> selected <% } %>>Middle East & Africa</option> //region
+              <option value="bh" <% if(data.country=="bh"){ %> selected <% } %>>Bahrain</option>
+              <option value="il" <% if(data.country=="il"){ %> selected <% } %>>Israel</option>
+              <option value="lb" <% if(data.country=="lb"){ %> selected <% } %>>Lebanon</option>
+              <option value="qa" <% if(data.country=="qa"){ %> selected <% } %>>Qatar</option>
+              <option value="sa" <% if(data.country=="sa"){ %> selected <% } %>>Saudi Arabia</option>
+              <option value="za" <% if(data.country=="za"){ %> selected <% } %>>South Africa</option>
+              <option value="ae" <% if(data.country=="ae"){ %> selected <% } %>>United Arab Emirates</option>
+              <option value="la" <% if(data.country=="la"){ %> selected <% } %>>Latin America</option> //region
+              <option value="bs" <% if(data.country=="bs"){ %> selected <% } %>>Bahamas</option>
+              <option value="br" <% if(data.country=="br"){ %> selected <% } %>>Brazil</option>
+              <option value="cl" <% if(data.country=="cl"){ %> selected <% } %>>Chile</option>
+              <option value="co" <% if(data.country=="co"){ %> selected <% } %>>Colombia</option>
+              <option value="mx" <% if(data.country=="mx"){ %> selected <% } %>>Mexico</option>
+              <option value="pa" <% if(data.country=="pa"){ %> selected <% } %>>Panama</option>
+        </select>
+   </div>
+        
+   <div class="form-group row">
+     <label for="position" class="col-sm-2 col-form-label">Teaser position</label>
+     <select name="position" id="position" class="form-control col-sm-10" required>
+       <option disabled selected>Choose teaser position</option>
+       <option value="p1" <% if(data.position=="p1"){ %> selected <% } %>>First Position</option>
+       <option value="p2" <% if(data.position=="p2"){ %> selected <% } %>>Second Position</option>
+       <option value="p3" <% if(data.position=="p3"){ %> selected <% } %>>Third Position</option>
+       <option value="p4" <% if(data.position=="p4"){ %> selected <% } %>>Fourth Position</option>
+       <option value="p5" <% if(data.position=="p5"){ %> selected <% } %>>Fifth Position</option>
+     </select>
+   </div>
+    
+    <div class="form-group row">
+      <label for="startdate" class="col-sm-2 col-form-label">start date</label>
+      <input type="date" class="form-control col-sm-4" name="startdate" value="<%= data.startdate %>" required>
+      <label for="enddate" class="col-sm-2 col-form-label">end date</label>
+      <input type="date" class="form-control col-sm-4" name="enddate" value="<%= data.enddate %>" required>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-danger" formaction= "/tdelete/<%= data.id %>">Delete</button>
+  <button type="submit" class="btn btn-success">Submit</button>
+  <a href="/index-teaser" class="btn btn-info">Back</a>
+</form>
