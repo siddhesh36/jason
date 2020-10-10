@@ -10,7 +10,7 @@
 		  <% var monthdiff = end.getMonth() - std.getMonth() %>
 		  <% if(monthdiff == 0) { %>
 			<% var diff = (end.getDate() - std.getDate() + 1 ) * 35 %>
-			<div class="rounded-lg shadow-sm bg-info" id="<%= data[i].id%>" data-toggle="tooltip" data-country="<%= data[i].country %>" data-std="<%- data[i].startdate %>" 
+			<div class="rounded-lg shadow-sm color-div" id="<%= data[i].id%>" data-position="<%= data[i].position %>" data-toggle="tooltip" data-country="<%= data[i].country %>" data-std="<%- data[i].startdate %>" 
 				style="width: <%- diff %>px !important" data-smon="<%= smon %>" data-emon="<%= emon %>" data-differmon="<%= monthdiff %>" title="<%= data[i].ticket %> - <%= data[i].title %>" >
 					<%= data[i].ticket %>
 			</div>
@@ -22,7 +22,7 @@
 			<% var monthpars = ("0" + (end.getMonth() + 1)).slice(-2) %>
 			<% var datepars = ("0" + (firstday.getDate())).slice(-2) %>
 			<% var firstdayparsed = firstday.getFullYear() + "-" + monthpars +"-"+ datepars %>
-			<div class="rounded-lg shadow-sm bg-info" id="<%= data[i].id%>" data-toggle="tooltip" data-country="<%= data[i].country %>" data-std="<%- data[i].startdate %>" 
+			<div class="rounded-lg shadow-sm color-div" id="<%= data[i].id%>" data-position="<%= data[i].position %>" data-toggle="tooltip" data-country="<%= data[i].country %>" data-std="<%- data[i].startdate %>" 
 				style="width: <%- newdiff %>px !important" data-smon="<%= smon %>" data-emon="<%= smon %>" data-differmon="<%= monthdiff %>" title="<%= data[i].ticket %> - <%= data[i].title %>" >
 				<% if(newdiff > 35) { %>
 					<%= data[i].ticket %>
@@ -30,7 +30,7 @@
 				.
 				<% } %>
 			</div>
-			<div class="rounded-lg shadow-sm bg-info" id="<%= data[i].id%>" data-toggle="tooltip" data-country="<%= data[i].country %>" data-std="<%- firstdayparsed %>" 
+			<div class="rounded-lg shadow-sm color-div" id="<%= data[i].id%>" data-position="<%= data[i].position %>" data-toggle="tooltip" data-country="<%= data[i].country %>" data-std="<%- firstdayparsed %>" 
 				style="width: <%- diffnm %>px !important" data-smon="<%= smon %>" data-emon="<%= emon %>" data-differmon="<%= monthdiff %>" title="<%= data[i].ticket %> - <%= data[i].title %>" >
 				<% if(diffnm > 35) { %>
 					<%= data[i].ticket %>
@@ -59,12 +59,12 @@
 				var getid = $(this).attr('id');
 				document.location.href ='/tedit/'+getid;
 			});
-
+			
 			$("#next1s").on("click", function(){
-				if(month<11){
+				if (month<11){
 					month = month +1;
 				}
-				else{
+				else {
 					month = 0;
 					year = year +1;
 				}
@@ -75,7 +75,7 @@
 					var emon = $(this).data('emon');
 					var startval = ($("."+getstartdate).text()-1) * 35;
 					var clone = $(this).clone();
-					if(emon == month){
+					if (emon == month){
 						$("."+getcountry).append(clone);
 						clone.css('left', startval);					
 					}
@@ -86,11 +86,11 @@
 				});
 			});
 			$("#prev1s").on("click", function(){
-				if(month>0){
+				if (month>0){
 					month = month -1;
 					year = year;
 				}
-				else{
+				else {
 					month = 11;
 					year = year - 1;
 				}

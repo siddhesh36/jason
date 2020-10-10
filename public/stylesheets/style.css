@@ -198,23 +198,36 @@ body{
     background-color: #F44336;
   }
 
+ 
+  #calendar-dates > table > tbody > tr {
+    height: 120px;
+  }
+
   #calendar-dates > table > tbody > tr:first-child{
     position: relative;
-    visibility: hidden;
+    display: table-footer-group;
+    border: 1px solid rgb(242,230,225);
+    height: 10px;
+  }
+
+  #calendar-dates > table > tbody > tr:first-child > td{
+    border: 1px solid rgb(242,230,225);
+    height: 2px;
   }
   
   #calendar-dates > table > tbody > tr > td {
     position: relative;
   }
 
+
   #calendar-dates > table > tbody > tr > td > div {
     float: left;
     position: absolute;
     color: #fff;
-    top:12px;
     cursor: pointer;
+    border: 1px inset;
   }
-
+  
   table{  
   border-collapse: collapse;
 }
@@ -231,6 +244,7 @@ body{
     background-color: cadetblue;
     color: #f2e6e1;
  }
+
   table tbody 
  {
    overflow: auto;
@@ -259,5 +273,32 @@ body{
   /* Navbar */
 
   .navbar-nav li{
-    height: fit-content;
+    height: 50%;
+  }
+
+  /* Teaser top values */
+
+  .color-div{
+    background-color: rgba(89, 143, 214,0.5)!important;
+  }
+
+  div[data-position="p1"] {
+    top:0;
+    background-color: rgb(113, 196, 124)!important;
+  }
+  div[data-position="p2"] {
+    top:24px;
+    background-color: rgb(89, 143, 214)!important;
+  }
+  div[data-position="p3"] {
+    top:48px;
+    background-color: rgb(206, 180, 95)!important;
+  }
+  div[data-position="p4"] {
+    top:72px;
+    background-color: rgb(118, 118, 202)!important;
+  }
+  div[data-position="p5"] {
+    top:96px;
+    background-color: rgb(223, 112, 112)!important;
   }

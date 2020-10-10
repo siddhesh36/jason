@@ -14,5 +14,13 @@
     "country": "dk",
     "startdate": "2020-09-26",
     "enddate": "2020-10-07"
+  },
+  {
+    "id": "idofobject_18",
+    "ticket": "BR-54545",
+    "title": "NEw promo",
+    "country": "dk",
+    "startdate": "2020-10-07",
+    "enddate": "2020-10-14"
   }
 ]
