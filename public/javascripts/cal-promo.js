@@ -20,7 +20,7 @@
 	commonEx();
 	//var days_1 = new Date(year, month+1, 0).getDate();
 	//var con = getCountry(days_1);
-	//$("#calendar-dates").append(con);
+	//$("#calendar-dates-p").append(con);
 	
 	function commonEx(){
 		var first_date = month_name[month] + " " + 1 + " " + year;
@@ -30,8 +30,6 @@
 		var days = new Date(year, month+1, 0).getDate();
 		calender = getCalender(days);
 		$("#calendar-month-year").html(month_name[month]+ " " + year);
-		$("#calendar-dates").empty();
-		$("#calendar-dates").append(calender);
 		$("#calendar-dates-p").empty();
 		$("#calendar-dates-p").append(calender);
 	}

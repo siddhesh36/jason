@@ -30,6 +30,12 @@ li > form {
   margin-left: 25px;
 }
 
+/* Form labels */
+
+.col-form-label{
+  text-align:left;
+}
+
  /*index.html*/
 
 body{
@@ -198,9 +204,19 @@ body{
     background-color: #F44336;
   }
 
- 
+  #calendar-dates-p > table > tbody > tr {
+    height: auto;
+  }
+
   #calendar-dates > table > tbody > tr {
     height: 120px;
+  }
+
+  #calendar-dates-p > table > tbody > tr:first-child{
+    position: relative;
+    display: table-footer-group;
+    border: 1px solid rgb(242,230,225);
+    height: 10px;
   }
 
   #calendar-dates > table > tbody > tr:first-child{
@@ -210,15 +226,28 @@ body{
     height: 10px;
   }
 
+  #calendar-dates-p > table > tbody > tr:first-child > td{
+    border: 1px solid rgb(242,230,225);
+    height: 2px;
+  }
+
   #calendar-dates > table > tbody > tr:first-child > td{
     border: 1px solid rgb(242,230,225);
     height: 2px;
   }
-  
-  #calendar-dates > table > tbody > tr > td {
+
+  table > tbody > tr > td {
     position: relative;
   }
-
+  
+  #calendar-dates-p > table > tbody > tr > td > div {
+    float: left;
+    position: absolute;
+    color: #fff;
+    cursor: pointer;
+    border: 1px inset;
+    top:12px;
+  }
 
   #calendar-dates > table > tbody > tr > td > div {
     float: left;
