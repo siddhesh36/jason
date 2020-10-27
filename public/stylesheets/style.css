@@ -243,7 +243,7 @@ body{
   #calendar-dates-p > table > tbody > tr > td > div {
     float: left;
     position: absolute;
-    color: #fff;
+    color: #000;
     cursor: pointer;
     border: 1px inset;
     top:12px;
@@ -252,7 +252,7 @@ body{
   #calendar-dates > table > tbody > tr > td > div {
     float: left;
     position: absolute;
-    color: #fff;
+    color: #000;
     cursor: pointer;
     border: 1px inset;
   }
@@ -313,21 +313,21 @@ body{
 
   div[data-position="p1"] {
     top:0;
-    background-color: rgb(113, 196, 124)!important;
+    background-color: rgba(113, 196, 124,0.6)!important;
   }
   div[data-position="p2"] {
     top:24px;
-    background-color: rgb(89, 143, 214)!important;
+    background-color: rgba(89, 143, 214,0.6)!important;
   }
   div[data-position="p3"] {
     top:48px;
-    background-color: rgb(206, 180, 95)!important;
+    background-color: rgba(206, 180, 95,0.6)!important;
   }
   div[data-position="p4"] {
     top:72px;
-    background-color: rgb(118, 118, 202)!important;
+    background-color: rgba(118, 118, 202,0.6)!important;
   }
   div[data-position="p5"] {
     top:96px;
-    background-color: rgb(223, 112, 112)!important;
+    background-color: rgba(223, 112, 112,0.6)!important;
   }
